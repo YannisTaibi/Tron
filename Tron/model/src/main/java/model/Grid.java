@@ -2,7 +2,7 @@ package model;
 
 import java.util.Observable;
 
-public class Grid extends Observable {
+public class Grid extends Observable implements IGrid{
 	public int												width;
 	public int												height;
 	

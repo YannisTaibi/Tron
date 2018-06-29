@@ -4,9 +4,9 @@ import java.awt.Graphics;
 import model.IGrid;
 
 public class TronGraphicsBuilder {
-	private final Grid grid;
+	private final IGrid grid;
 	
-	public TronGraphicsBuilder(final Grid grid) {
+	public TronGraphicsBuilder(final IGrid grid) {
 		this.grid = grid;
 	}
 	

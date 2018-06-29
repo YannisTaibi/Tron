@@ -1,12 +1,13 @@
 package view;
 
 import javax.swing.JFrame;
+import model.IGrid;
 
-class EasyFrame extends JFrame {
+class EasyFrame extends JFrame implements IEasyFrame{
 	private static final long	serialVersionUID	= -1112124206501543946L;
 	public static final int		ZOOM				= 7;
 
-	public EasyFrame(final String title, final Grid grid) {
+	public EasyFrame(final String title, final IGrid grid) {
 
 		this.setTitle(title);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
