@@ -28,6 +28,4 @@ public class Grid extends Observable implements IGrid{
 	}
 	
 
-	
-	
 }
