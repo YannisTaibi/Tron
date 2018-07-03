@@ -5,6 +5,7 @@ import java.util.Observable;
 public class Grid extends Observable implements IGrid{
 	public int												width;
 	public int												height;
+	private MotionLess[][] matrix;
 	
 	public Grid(final int width, final int height) {
 		this.setWidth(width);

@@ -1,6 +1,6 @@
 package model;
 
-public interface IGrid {
+public interface IGrid{
 	int getHeight();
 	int getWidth();
 	}

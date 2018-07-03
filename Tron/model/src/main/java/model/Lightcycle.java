@@ -2,7 +2,6 @@ package model;
 
 import java.awt.Color;
 
-import model.IGrid;
 
 
 public class Lightcycle {
@@ -12,9 +11,26 @@ public class Lightcycle {
 	private final Color color;
 	
 	
-	public Lightcycle(final Grid grid, final Color color) {
-		this.grid = new Grid(width, height);
+	public Lightcycle(final Grid grid, final int width, final int height, final Color color) {
+		this.grid = grid;
+		this.alive = true;
+		this.color = color;
 	}
 	
-
+	
+	public boolean isAlive() {
+		return this.alive;
+	}
+	
+	public void die() {
+		this.alive = false;
+	}
+	
+	public Grid getGrid() {
+		return this.grid;
+	}
+	
+	public Color getColor() {
+		return this.color;
+	}
 }
