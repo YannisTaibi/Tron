@@ -3,9 +3,8 @@ package model;
 import java.sql.SQLException;
 import java.util.List;
 
-import view.IEasyFrame;
 import model.dao.ExampleDAO;
-import model.IGrid;
+
 /**
  * <h1>The Class ModelFacade provides a facade of the Model component.</h1>
  *
@@ -13,20 +12,21 @@ import model.IGrid;
  * @version 1.0
  */
 public final class ModelFacade implements IModel {
-	
-	private Grid grid;
-	private EasyFrame easyFrame;
+
+    // private Grid grid;
+    // private EasyFrame easyFrame;
     /**
      * Instantiates a new model facade.
      */
-    public ModelFacade(final int height, final int width) {
+    public ModelFacade() {
         super();
-        this.grid = new Grid(height, width);
-        this.easyFrame = new EasyFrame("Tron", this.grid);
+        // this.grid = new Grid(height, width);
+        // this.easyFrame = new EasyFrame("Tron", this.grid);
     }
 
     /*
      * (non-Javadoc)
+     * 
      * @see model.IModel#getExampleById(int)
      */
     @Override
@@ -36,6 +36,7 @@ public final class ModelFacade implements IModel {
 
     /*
      * (non-Javadoc)
+     * 
      * @see model.IModel#getExampleByName(java.lang.String)
      */
     @Override
@@ -45,6 +46,7 @@ public final class ModelFacade implements IModel {
 
     /*
      * (non-Javadoc)
+     * 
      * @see model.IModel#getAllExamples()
      */
     @Override

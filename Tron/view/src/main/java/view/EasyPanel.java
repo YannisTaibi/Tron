@@ -3,21 +3,24 @@ package view;
 import java.awt.Graphics;
 import java.util.Observable;
 import java.util.Observer;
+
 import javax.swing.JPanel;
 
 class EasyPanel extends JPanel implements Observer {
-	private static final long								serialVersionUID	= 3987064896591403626L;
-	private final TronGraphicsBuilder	graphicsBuilder;
+    private static final long         serialVersionUID = 3987064896591403626L;
+    private final TronGraphicsBuilder graphicsBuilder;
 
-	public EasyPanel(final TronGraphicsBuilder graphicsBuilder) {
-		this.graphicsBuilder = graphicsBuilder;
-	}
+    public EasyPanel(final TronGraphicsBuilder graphicsBuilder) {
+        this.graphicsBuilder = graphicsBuilder;
+    }
 
-	public void update(final Observable arg0, final Object arg1) {
-		this.repaint();
-	}
+    @Override
+    public void update(final Observable arg0, final Object arg1) {
+        this.repaint();
+    }
 
-	protected void paintComponent(final Graphics graphics) {
-		this.graphicsBuilder.applyModelToGraphic(graphics);
-	}
+    @Override
+    protected void paintComponent(final Graphics graphics) {
+        this.graphicsBuilder.applyModelToGraphic(graphics);
+    }
 }

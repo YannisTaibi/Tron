@@ -1,5 +1,5 @@
 package model;
 
-public class MotionLess {
+public class MotionLess implements IMotionLess {
 
 }

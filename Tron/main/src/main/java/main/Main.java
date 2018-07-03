@@ -3,6 +3,9 @@ package main;
 import java.sql.SQLException;
 
 import controller.ControllerFacade;
+import model.Grid;
+import model.IGrid;
+import model.ILightcycle;
 import model.ModelFacade;
 import view.ViewFacade;
 
@@ -13,6 +16,10 @@ import view.ViewFacade;
  * @version 1.0
  */
 public abstract class Main {
+    private final static IGrid       grid;
+    private final static ILightcycle lightcicle;
+    private final static int         width  = 400;
+    private final static int         height = 600;
 
     /**
      * The main method.
@@ -22,6 +29,7 @@ public abstract class Main {
      */
     public static void main(final String[] args) {
         final ControllerFacade controller = new ControllerFacade(new ViewFacade(), new ModelFacade());
+        final Grid grid = new Grid(Main.width, Main.height);
 
         try {
             controller.start();
