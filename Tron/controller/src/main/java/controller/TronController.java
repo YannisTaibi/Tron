@@ -1,29 +1,42 @@
 package controller;
 
-import java.awt.Color;
+import model.Direction;
 import model.IGrid;
-import view.IEasyFrame;
 import model.ILightcycle;
-import model.IModel;
 import view.IView;
 
 class TronController {
-    static private int    width      = 400;
-    static private int    height     = 600;
     private static int    TIME_SLEEP = 50;
-    private final IModel  model;
+    private final IGrid   model;
     private IView         view;
     private final boolean isGameOver = false;
 
-    public TronController() {
-        this.model = this.model;
+    public TronController(final IGrid model) {
+        this.model = model;
     }
 
     public void orderPerform(final IUserOrder userOrder) {
-		if (userOrder != null) {
-			final ILightcycle lightcycle = this.
-		}
-	}
+        if (userOrder != null) {
+            final ILightcycle lightcycle = this.model.getMobileByPlayer(userOrder.getPlayer());
+            if (lightcycle != null) {
+                int direction;
+                switch (userOrder.getOrder()) {
+                case RIGHT:
+                    direction = (Direction.RIGHT.ordinal() + 1) % 4;
+                    break;
+                case LEFT:
+                    direction = (Direction.LEFT.ordinal() - 1) % 4;
+                    break;
+                case NOTHING:
+                default:
+                    direction = this.model.getMobileByPlayer(userOrder.getPlayer()).getDirection();
+                    break;
+
+                }
+                lightcycle.setDirection(direction);
+            }
+        }
+    }
 
     public void checkCollision() {
 

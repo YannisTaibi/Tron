@@ -2,7 +2,7 @@ package controller;
 
 import java.sql.SQLException;
 
-import model.IModel;
+import model.IGrid;
 import view.IView;
 
 /**
@@ -18,7 +18,7 @@ public class ControllerFacade implements IController {
     private final IView  view;
 
     /** The model. */
-    private final IModel model;
+    private final IGrid model;
 
     /**
      * Instantiates a new controller facade.
@@ -28,7 +28,7 @@ public class ControllerFacade implements IController {
      * @param model
      *            the model
      */
-    public ControllerFacade(final IView view, final IModel model) {
+    public ControllerFacade(final IView view, final IGrid model) {
         super();
         this.view = view;
         this.model = model;
@@ -66,7 +66,7 @@ public class ControllerFacade implements IController {
      *
      * @return the model
      */
-    public IModel getModel() {
+    public IGrid getModel() {
         return this.model;
     }
 }
