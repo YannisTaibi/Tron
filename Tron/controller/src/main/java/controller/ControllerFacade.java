@@ -1,3 +1,6 @@
+/*
+ *
+ */
 package controller;
 
 import java.sql.SQLException;
@@ -5,6 +8,7 @@ import java.sql.SQLException;
 import model.IGrid;
 import view.IView;
 
+// TODO: Auto-generated Javadoc
 /**
  * <h1>The Class ControllerFacade provides a facade of the Controller
  * component.</h1>
@@ -15,7 +19,7 @@ import view.IView;
 public class ControllerFacade implements IController {
 
     /** The view. */
-    private final IView  view;
+    private final IView view;
 
     /** The model. */
     private final IGrid model;
@@ -68,5 +72,55 @@ public class ControllerFacade implements IController {
      */
     public IGrid getModel() {
         return this.model;
+    }
+
+    /*
+     * (non-Javadoc)
+     *
+     * @see controller.IController#orderPerform(controller.IUserOrder)
+     */
+    @Override
+    public void orderPerform(final IUserOrder userOrder) {
+        // TODO Auto-generated method stub
+
+    }
+
+    /*
+     * (non-Javadoc)
+     *
+     * @see controller.IController#checkCollision()
+     */
+    @Override
+    public void checkCollision() {
+        // TODO Auto-generated method stub
+
+    }
+
+    /*
+     * (non-Javadoc)
+     *
+     * @see controller.IController#play()
+     */
+    @Override
+    public void play() {
+        // TODO Auto-generated method stub
+
+    }
+
+    /*
+     * (non-Javadoc)
+     *
+     * @see controller.IController#gameLoop()
+     */
+    @Override
+    public void gameLoop() {
+        // TODO Auto-generated method stub
+
+    }
+
+    @Override
+    public void setView(final IView view) {
+        // TODO Auto-generated method stub
+
     }
 }

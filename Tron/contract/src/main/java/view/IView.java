@@ -1,5 +1,9 @@
+/*
+ * 
+ */
 package view;
 
+// TODO: Auto-generated Javadoc
 /**
  * <h1>The Interface IView.</h1>
  *
@@ -15,5 +19,9 @@ public interface IView {
      *            the message
      */
     void displayMessage(String message);
+    
+    /**
+     * Close all.
+     */
     void closeAll();
 }

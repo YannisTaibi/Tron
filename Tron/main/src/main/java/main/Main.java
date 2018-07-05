@@ -1,11 +1,17 @@
+/*
+ *
+ */
 package main;
 
-import java.sql.SQLException;
+import java.awt.Color;
 
-import controller.ControllerFacade;
-import model.ModelFacade;
-import view.ViewFacade;
+import controller.TronController;
+import model.Grid;
+import model.Lightcycle;
+import model.Position;
+import view.TronView;
 
+// TODO: Auto-generated Javadoc
 /**
  * <h1>The Class Main.</h1>
  *
@@ -13,6 +19,8 @@ import view.ViewFacade;
  * @version 1.0
  */
 public abstract class Main {
+    private final static int width  = 400;
+    private final static int height = 600;
 
     /**
      * The main method.
@@ -21,12 +29,12 @@ public abstract class Main {
      *            the arguments
      */
     public static void main(final String[] args) {
-        final ControllerFacade controller = new ControllerFacade(new ViewFacade(), new ModelFacade());
-        try {
-            controller.start();
-        } catch (final SQLException exception) {
-            exception.printStackTrace();
-        }
+        final Grid grid = new Grid(Main.width, Main.height);
+        grid.addLightcycle(new Lightcycle(new Position(50, 50), 1, Color.CYAN, 0));
+        grid.addLightcycle(new Lightcycle(new Position(550, 550), 3, Color.YELLOW, 1));
+        final TronController controller = new TronController(grid);
+        controller.setView(new TronView(controller, grid, grid));
+        controller.play();
     }
 
 }

@@ -1,9 +1,13 @@
+/*
+ *
+ */
 package model;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+// TODO: Auto-generated Javadoc
 /**
  * <h1>The Interface IModel.</h1>
  *
@@ -43,15 +47,54 @@ public interface IGrid {
      */
     List<Example> getAllExamples() throws SQLException;
 
-    ILightcycle getMobileByPlayer(int player);
-
+    /**
+     * Gets the height.
+     *
+     * @return the height
+     */
     int getHeight();
 
+    /**
+     * Gets the width.
+     *
+     * @return the width
+     */
     int getWidth();
 
+    /**
+     * Gets the matrix XY.
+     *
+     * @param x
+     *            the x
+     * @param y
+     *            the y
+     * @return the matrix XY
+     */
     public IMotionLess getMatrixXY(int x, int y);
 
+    /**
+     * Sets the matrix XY.
+     *
+     * @param motionLess
+     *            the motion less
+     * @param x
+     *            the x
+     * @param y
+     *            the y
+     */
     public void setMatrixXY(final IMotionLess motionLess, final int x, final int y);
 
+    /**
+     * Gets the lightcycle.
+     *
+     * @return the lightcycle
+     */
     public ArrayList<ILightcycle> getLightcycle();
+
+    ILightcycle getLightcycleByPlayer(int player);
+
+    public void setLightcyclesHaveMoved();
+
+    public void createWall(final int player);
+
 }

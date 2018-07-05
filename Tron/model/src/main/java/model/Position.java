@@ -1,41 +1,82 @@
+/*
+ *
+ */
 package model;
 
-public class Position {
-    private int x;
-    private int y;
-    private int maxX = 1;
-    private int maxY = 1;
+// TODO: Auto-generated Javadoc
+/**
+ * The Class Position.
+ */
+public class Position implements IPosition {
 
+    /** The x. */
+    private int x;
+
+    /** The y. */
+    private int y;
+
+    /**
+     * Instantiates a new position.
+     *
+     * @param x
+     *            the x
+     * @param y
+     *            the y
+     */
     public Position(final int x, final int y) {
         this.x = x;
         this.y = y;
     }
 
+    /**
+     * Instantiates a new position.
+     *
+     * @param position
+     *            the position
+     */
     public Position(final Position position) {
         this(position.getX(), position.getY());
     }
 
+    /**
+     * Gets the x.
+     *
+     * @return the x
+     */
+    @Override
     public int getX() {
         return this.x;
     }
 
+    /**
+     * Sets the x.
+     *
+     * @param x
+     *            the new x
+     */
+    @Override
     public void setX(final int x) {
-        this.x = (x + this.maxX) % this.maxX;
+        this.x = x;
     }
 
+    /**
+     * Gets the y.
+     *
+     * @return the y
+     */
+    @Override
     public int getY() {
         return this.y;
     }
 
+    /**
+     * Sets the y.
+     *
+     * @param y
+     *            the new y
+     */
+    @Override
     public void setY(final int y) {
-        this.y = (y + this.maxY) % this.maxY;
-    }
-
-    protected void setMaxX(final int maxX) {
-        this.maxX = maxX;
-    }
-
-    protected void setMaxY(final int maxY) {
-        this.maxY = maxY;
+        this.y = y;
     }
 }

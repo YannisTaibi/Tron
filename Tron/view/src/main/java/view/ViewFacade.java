@@ -1,7 +1,11 @@
+/*
+ * 
+ */
 package view;
 
 import javax.swing.JOptionPane;
 
+// TODO: Auto-generated Javadoc
 /**
  * <h1>The Class ViewFacade provides a facade of the View component.</h1>
  *
@@ -27,6 +31,9 @@ public class ViewFacade implements IView {
         JOptionPane.showMessageDialog(null, message);
     }
 
+    /* (non-Javadoc)
+     * @see view.IView#closeAll()
+     */
     @Override
     public void closeAll() {
         // TODO Auto-generated method stub

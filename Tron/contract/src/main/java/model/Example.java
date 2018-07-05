@@ -1,5 +1,9 @@
+/*
+ * 
+ */
 package model;
 
+// TODO: Auto-generated Javadoc
 /**
  * <h1>The Class Example.</h1>
  *

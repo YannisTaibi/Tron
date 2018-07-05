@@ -1,3 +1,6 @@
+/*
+ *
+ */
 package model;
 
 import java.sql.SQLException;
@@ -6,6 +9,7 @@ import java.util.List;
 
 import model.dao.ExampleDAO;
 
+// TODO: Auto-generated Javadoc
 /**
  * <h1>The Class ModelFacade provides a facade of the Model component.</h1>
  *
@@ -55,40 +59,77 @@ public final class ModelFacade implements IGrid {
         return ExampleDAO.getAllExamples();
     }
 
-    @Override
-    public ILightcycle getMobileByPlayer(final int player) {
-        // TODO Auto-generated method stub
-        return null;
-    }
-
+    /*
+     * (non-Javadoc)
+     *
+     * @see model.IGrid#getHeight()
+     */
     @Override
     public int getHeight() {
         // TODO Auto-generated method stub
         return 0;
     }
 
+    /*
+     * (non-Javadoc)
+     *
+     * @see model.IGrid#getWidth()
+     */
     @Override
     public int getWidth() {
         // TODO Auto-generated method stub
         return 0;
     }
 
+    /*
+     * (non-Javadoc)
+     *
+     * @see model.IGrid#getMatrixXY(int, int)
+     */
     @Override
     public IMotionLess getMatrixXY(final int x, final int y) {
         // TODO Auto-generated method stub
         return null;
     }
 
+    /*
+     * (non-Javadoc)
+     *
+     * @see model.IGrid#setMatrixXY(model.IMotionLess, int, int)
+     */
     @Override
     public void setMatrixXY(final IMotionLess motionLess, final int x, final int y) {
         // TODO Auto-generated method stub
 
     }
 
+    /*
+     * (non-Javadoc)
+     *
+     * @see model.IGrid#getLightcycle()
+     */
     @Override
     public ArrayList<ILightcycle> getLightcycle() {
         // TODO Auto-generated method stub
         return null;
+    }
+
+    @Override
+    public ILightcycle getLightcycleByPlayer(final int player) {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public void setLightcyclesHaveMoved() {
+        // TODO Auto-generated method stub
+
+    }
+
+    @Override
+    public void createWall(final int player) {
+        // TODO Auto-generated method stub
+
     }
 
 }
