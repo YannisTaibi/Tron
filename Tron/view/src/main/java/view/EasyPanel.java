@@ -33,7 +33,7 @@ class EasyPanel extends JPanel implements Observer {
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see java.util.Observer#update(java.util.Observable, java.lang.Object)
      */
     @Override
@@ -43,7 +43,7 @@ class EasyPanel extends JPanel implements Observer {
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see javax.swing.JComponent#paintComponent(java.awt.Graphics)
      */
     @Override

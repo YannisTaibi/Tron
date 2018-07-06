@@ -3,6 +3,7 @@
  */
 package view;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.image.ImageObserver;
 
@@ -49,7 +50,10 @@ public class TronGraphicsBuilder {
     }
 
     public void drawBorderWall(final Graphics graphics) {
-
+        final int width = 399;
+        final int height = 599;
+        graphics.setColor(Color.BLACK);
+        graphics.drawRect(0, 0, width, height);
     }
 
     public void drawLightCycle(final Graphics graphics, final ILightcycle lightCycle) {
@@ -60,5 +64,7 @@ public class TronGraphicsBuilder {
 
     public void applyModelToGraphic(final Graphics graphics, final ImageObserver observer) {
         this.drawAllLightCycle(graphics);
+        this.drawBorderWall(graphics);
     }
+
 }
