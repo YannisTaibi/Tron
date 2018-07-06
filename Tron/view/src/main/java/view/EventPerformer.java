@@ -54,15 +54,19 @@ class EventPerformer implements IEventPerformer {
         switch (keyCode) {
         case KeyEvent.VK_Q:
             userOrder = new UserOrder(0, Order.LEFT);
+            System.out.println("Key Q pressed");
             break;
         case KeyEvent.VK_D:
             userOrder = new UserOrder(0, Order.RIGHT);
+            System.out.println("Key D pressed");
             break;
         case KeyEvent.VK_LEFT:
             userOrder = new UserOrder(1, Order.LEFT);
+            System.out.println("Key LEFT pressed");
             break;
         case KeyEvent.VK_RIGHT:
             userOrder = new UserOrder(1, Order.RIGHT);
+            System.out.println("Key RIGHT pressed");
             break;
         default:
             userOrder = null;

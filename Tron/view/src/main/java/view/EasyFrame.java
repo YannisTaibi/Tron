@@ -24,7 +24,6 @@ class EasyFrame extends JFrame implements IEasyFrame, KeyListener {
     public static final int       ZOOM             = 1;
 
     /** The observable. */
-    private Observable            observable;
 
     private final IEventPerformer eventPerformer;
 
@@ -48,8 +47,8 @@ class EasyFrame extends JFrame implements IEasyFrame, KeyListener {
         this.setTitle(title);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setResizable(false);
+        this.addKeyListener(this);
         this.setVisible(true);
-        this.setObservable(observable);
         this.eventPerformer = eventPerformer;
 
         final EasyPanel easyPanel = new EasyPanel(new TronGraphicsBuilder(grid));
@@ -58,26 +57,7 @@ class EasyFrame extends JFrame implements IEasyFrame, KeyListener {
                 (grid.getHeight() * EasyFrame.ZOOM) + this.getInsets().top + this.getInsets().bottom);
         this.setLocationRelativeTo(null);
         this.setVisible(true);
-        this.getObservable().addObserver(easyPanel);
-    }
-
-    /**
-     * Gets the observable.
-     *
-     * @return the observable
-     */
-    public Observable getObservable() {
-        return this.observable;
-    }
-
-    /**
-     * Sets the observable.
-     *
-     * @param observable
-     *            the new observable
-     */
-    public void setObservable(final Observable observable) {
-        this.observable = observable;
+        observable.addObserver(easyPanel);
     }
 
     @Override

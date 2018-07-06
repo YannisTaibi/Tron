@@ -1,5 +1,5 @@
 /*
- * 
+ *
  */
 package view;
 
@@ -14,23 +14,26 @@ import javax.swing.JPanel;
  * The Class EasyPanel.
  */
 class EasyPanel extends JPanel implements Observer {
-    
+
     /** The Constant serialVersionUID. */
     private static final long         serialVersionUID = 3987064896591403626L;
-    
+
     /** The graphics builder. */
     private final TronGraphicsBuilder graphicsBuilder;
 
     /**
      * Instantiates a new easy panel.
      *
-     * @param graphicsBuilder the graphics builder
+     * @param graphicsBuilder
+     *            the graphics builder
      */
     public EasyPanel(final TronGraphicsBuilder graphicsBuilder) {
         this.graphicsBuilder = graphicsBuilder;
     }
 
-    /* (non-Javadoc)
+    /*
+     * (non-Javadoc)
+     * 
      * @see java.util.Observer#update(java.util.Observable, java.lang.Object)
      */
     @Override
@@ -38,11 +41,13 @@ class EasyPanel extends JPanel implements Observer {
         this.repaint();
     }
 
-    /* (non-Javadoc)
+    /*
+     * (non-Javadoc)
+     * 
      * @see javax.swing.JComponent#paintComponent(java.awt.Graphics)
      */
     @Override
     protected void paintComponent(final Graphics graphics) {
-        this.graphicsBuilder.applyModelToGraphic(graphics);
+        this.graphicsBuilder.applyModelToGraphic(graphics, this);
     }
 }

@@ -21,7 +21,7 @@ public class Lightcycle implements ILightcycle {
     private IPosition   position;
 
     /** The direction. */
-    private final int   direction;
+    public int          direction;
 
     /** The player. */
     private final int   player;
@@ -84,14 +84,14 @@ public class Lightcycle implements ILightcycle {
      * Move up.
      */
     private void MoveUp() {
-        this.position.setY(this.position.getY() + 1);
+        this.position.setY(this.position.getY() - 1);
     }
 
     /**
      * Move down.
      */
     private void MoveDown() {
-        this.position.setY(this.position.getY() - 1);
+        this.position.setY(this.position.getY() + 1);
     }
 
     /**
@@ -124,8 +124,8 @@ public class Lightcycle implements ILightcycle {
      * @see model.ILightcycle#setDirection(int)
      */
     @Override
-    public void setDirection(final int direction) {
-        // TODO Auto-generated method stub
+    public int setDirection(final int direction) {
+        return this.direction = direction;
     }
 
     /**

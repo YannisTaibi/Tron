@@ -31,8 +31,8 @@ public abstract class Main {
     public static void main(final String[] args) {
 
         final Grid grid = new Grid(Main.width, Main.height);
-        grid.addLightcycle(new Lightcycle(new Position(50, 50), 3, Color.CYAN, 0));
-        grid.addLightcycle(new Lightcycle(new Position(100, 200), 2, Color.YELLOW, 1));
+        grid.addLightcycle(new Lightcycle(new Position(50, 50), 2, Color.RED, 0));
+        grid.addLightcycle(new Lightcycle(new Position(100, 200), 3, Color.GREEN, 1));
         final TronController controller = new TronController(grid);
         controller.setView(new TronView(controller, grid, grid));
         controller.play();

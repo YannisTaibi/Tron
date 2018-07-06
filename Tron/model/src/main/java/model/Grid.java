@@ -179,8 +179,9 @@ public class Grid extends Observable implements IGrid {
      */
     @Override
     public void createWall(final int player) {
-        System.out.println("player " + player + ": x: " + this.getLightcycleByPlayer(player).getPosition().getX()
-                + " y: " + this.getLightcycleByPlayer(player).getPosition().getY());
+        // System.out.println("player " + player + ": x: " +
+        // this.getLightcycleByPlayer(player).getPosition().getX()
+        // + " y: " + this.getLightcycleByPlayer(player).getPosition().getY());
 
         this.setMatrixXY(ElementGrid.getElementGridByPlayer(player),
                 this.getLightcycleByPlayer(player).getPosition().getX(),

@@ -3,7 +3,6 @@
  */
 package controller;
 
-import model.Direction;
 import model.IGrid;
 import model.ILightcycle;
 import view.IView;
@@ -15,7 +14,7 @@ import view.IView;
 public class TronController implements IController, IOrderPerformer {
 
     /** The time sleep. */
-    private static int  TIME_SLEEP = 50;
+    private static int  TIME_SLEEP = 30;
 
     /** The grid. */
     private final IGrid grid;
@@ -50,19 +49,25 @@ public class TronController implements IController, IOrderPerformer {
                 int direction;
                 switch (userOrder.getOrder()) {
                 case RIGHT:
-                    direction = (Direction.RIGHT.ordinal() + 1) % 4;
-                    System.out.println("JE DAB");
+                    direction = (lightcycle.setDirection(
+                            (this.grid.getLightcycleByPlayer(userOrder.getPlayer()).getDirection() + 1 + 4) % 4));
+                    System.out.println("JE VAIS A DROITE");
+
                     break;
                 case LEFT:
-                    direction = (Direction.LEFT.ordinal() - 1) % 4;
-                    System.out.println("TRIPLE DAB");
+                    direction = (lightcycle.setDirection(
+                            ((this.grid.getLightcycleByPlayer(userOrder.getPlayer()).getDirection() - 1) + 4) % 4));
+                    System.out.println("JE VAIS A GAUCHE");
                     break;
                 case NOTHING:
                 default:
-                    direction = this.grid.getLightcycleByPlayer(userOrder.getPlayer()).getDirection();
+                    direction = lightcycle
+                            .setDirection(this.grid.getLightcycleByPlayer(userOrder.getPlayer()).getDirection());
                     break;
 
                 }
+
+                System.out.println(direction);
                 lightcycle.setDirection(direction);
             }
         }

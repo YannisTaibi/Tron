@@ -42,8 +42,9 @@ public interface ILightcycle {
      *
      * @param direction
      *            the new direction
+     * @return
      */
-    void setDirection(int direction);
+    int setDirection(int direction);
 
     /**
      * Gets the position.
