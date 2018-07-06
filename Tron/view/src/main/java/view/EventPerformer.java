@@ -30,7 +30,7 @@ class EventPerformer implements IEventPerformer {
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see view.IEventPerformer#eventPerform(java.awt.event.KeyEvent)
      */
     @Override
@@ -55,7 +55,7 @@ class EventPerformer implements IEventPerformer {
         case KeyEvent.VK_Q:
             userOrder = new UserOrder(0, Order.LEFT);
             break;
-        case KeyEvent.VK_S:
+        case KeyEvent.VK_D:
             userOrder = new UserOrder(0, Order.RIGHT);
             break;
         case KeyEvent.VK_LEFT:

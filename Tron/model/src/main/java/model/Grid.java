@@ -23,7 +23,7 @@ public class Grid extends Observable implements IGrid {
     public int                           height;
 
     /** The matrix. */
-    private IMotionLess[][]              matrix;
+    private final IMotionLess[][]        matrix;
 
     /** The lightcycle. */
     private final ArrayList<ILightcycle> lightcycles;
@@ -40,6 +40,16 @@ public class Grid extends Observable implements IGrid {
         this.width = width;
         this.height = height;
         this.lightcycles = new ArrayList<ILightcycle>();
+        this.matrix = new IMotionLess[width][height];
+        for (int x = 0; x < width; x++) {
+            for (int y = 0; y < height; y++) {
+                if ((x == 0) || (x == (this.width - 1)) || (y == 0) || (y == (this.height - 1))) {
+                    this.setMatrixXY(ElementGrid.WALL, x, y);
+                } else {
+                    this.setMatrixXY(ElementGrid.GROUND, x, y);
+                }
+            }
+        }
     }
 
     /*
@@ -154,6 +164,7 @@ public class Grid extends Observable implements IGrid {
     public ILightcycle getLightcycleByPlayer(final int player) {
         for (final ILightcycle lightcycle : this.lightcycles) {
             if (lightcycle.isPlayer(player)) {
+                return lightcycle;
 
             }
         }
@@ -168,6 +179,9 @@ public class Grid extends Observable implements IGrid {
      */
     @Override
     public void createWall(final int player) {
+        System.out.println("player " + player + ": x: " + this.getLightcycleByPlayer(player).getPosition().getX()
+                + " y: " + this.getLightcycleByPlayer(player).getPosition().getY());
+
         this.setMatrixXY(ElementGrid.getElementGridByPlayer(player),
                 this.getLightcycleByPlayer(player).getPosition().getX(),
                 this.getLightcycleByPlayer(player).getPosition().getY());

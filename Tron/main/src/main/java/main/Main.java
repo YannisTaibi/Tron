@@ -29,9 +29,10 @@ public abstract class Main {
      *            the arguments
      */
     public static void main(final String[] args) {
+
         final Grid grid = new Grid(Main.width, Main.height);
-        grid.addLightcycle(new Lightcycle(new Position(50, 50), 1, Color.CYAN, 0));
-        grid.addLightcycle(new Lightcycle(new Position(550, 550), 3, Color.YELLOW, 1));
+        grid.addLightcycle(new Lightcycle(new Position(50, 50), 3, Color.CYAN, 0));
+        grid.addLightcycle(new Lightcycle(new Position(100, 200), 2, Color.YELLOW, 1));
         final TronController controller = new TronController(grid);
         controller.setView(new TronView(controller, grid, grid));
         controller.play();

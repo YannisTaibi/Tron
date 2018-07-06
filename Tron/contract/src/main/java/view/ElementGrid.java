@@ -34,4 +34,9 @@ public enum ElementGrid implements IMotionLess {
             return ElementGrid.WALL2;
         }
     }
+
+    @Override
+    public boolean isWALL() {
+        return (this == WALL1) || (this == WALL) || (this == WALL2);
+    }
 }

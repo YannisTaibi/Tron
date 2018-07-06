@@ -3,6 +3,8 @@
  */
 package view;
 
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.util.Observable;
 
 import javax.swing.JFrame;
@@ -13,16 +15,18 @@ import model.IGrid;
 /**
  * The Class EasyFrame.
  */
-class EasyFrame extends JFrame implements IEasyFrame {
+class EasyFrame extends JFrame implements IEasyFrame, KeyListener {
 
     /** The Constant serialVersionUID. */
-    private static final long serialVersionUID = -1112124206501543946L;
+    private static final long     serialVersionUID = -1112124206501543946L;
 
     /** The Constant ZOOM. */
-    public static final int   ZOOM             = 7;
+    public static final int       ZOOM             = 1;
 
     /** The observable. */
-    private Observable        observable;
+    private Observable            observable;
+
+    private final IEventPerformer eventPerformer;
 
     /**
      * Instantiates a new easy frame.
@@ -46,6 +50,7 @@ class EasyFrame extends JFrame implements IEasyFrame {
         this.setResizable(false);
         this.setVisible(true);
         this.setObservable(observable);
+        this.eventPerformer = eventPerformer;
 
         final EasyPanel easyPanel = new EasyPanel(new TronGraphicsBuilder(grid));
         this.setContentPane(easyPanel);
@@ -73,5 +78,23 @@ class EasyFrame extends JFrame implements IEasyFrame {
      */
     public void setObservable(final Observable observable) {
         this.observable = observable;
+    }
+
+    @Override
+    public void keyPressed(final KeyEvent keyEvent) {
+        this.eventPerformer.eventPerform(keyEvent);
+
+    }
+
+    @Override
+    public void keyReleased(final KeyEvent keyEvent) {
+        // TODO Auto-generated method stub
+
+    }
+
+    @Override
+    public void keyTyped(final KeyEvent keyEvent) {
+        // TODO Auto-generated method stub
+
     }
 }

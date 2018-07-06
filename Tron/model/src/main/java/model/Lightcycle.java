@@ -66,6 +66,7 @@ public class Lightcycle implements ILightcycle {
      */
     @Override
     public void die() {
+        System.out.println("BOUM");
         this.alive = false;
     }
 

@@ -3,8 +3,6 @@
  */
 package controller;
 
-import java.util.ArrayList;
-
 import model.Direction;
 import model.IGrid;
 import model.ILightcycle;
@@ -17,16 +15,16 @@ import view.IView;
 public class TronController implements IController, IOrderPerformer {
 
     /** The time sleep. */
-    private static int    TIME_SLEEP = 50;
+    private static int  TIME_SLEEP = 50;
 
     /** The grid. */
-    private final IGrid   grid;
+    private final IGrid grid;
 
     /** The view. */
-    private IView         view;
+    private IView       view;
 
     /** The is game over. */
-    private final boolean isGameOver = false;
+    private boolean     isGameOver = false;
 
     /**
      * Instantiates a new tron controller.
@@ -75,7 +73,13 @@ public class TronController implements IController, IOrderPerformer {
      */
     @Override
     public void checkCollision() {
-
+        for (int player = 0; player < 2; player++) {
+            if (this.grid.getMatrixXY(this.grid.getLightcycleByPlayer(player).getPosition().getX(),
+                    this.grid.getLightcycleByPlayer(player).getPosition().getY()).isWALL()) {
+                this.isGameOver = true;
+                this.grid.getLightcycleByPlayer(player).die();
+            }
+        }
     }
 
     /**
@@ -84,7 +88,13 @@ public class TronController implements IController, IOrderPerformer {
     @Override
     public void play() {
         this.gameLoop();
-        this.view.displayMessage("Game Over !");
+        if (!this.grid.getLightcycleByPlayer(0).isAlive() && !this.grid.getLightcycleByPlayer(1).isAlive()) {
+            this.view.displayMessage("Its a tie");
+        } else if (!this.grid.getLightcycleByPlayer(0).isAlive()) {
+            this.view.displayMessage("Player 2 wins");
+        } else if (!this.grid.getLightcycleByPlayer(1).isAlive()) {
+            this.view.displayMessage("Player 1 wins");
+        }
         this.view.closeAll();
     }
 
@@ -99,13 +109,10 @@ public class TronController implements IController, IOrderPerformer {
             } catch (final InterruptedException ex) {
                 Thread.currentThread().interrupt();
             }
-            final ArrayList<ILightcycle> initialLightcycles = new ArrayList<ILightcycle>();
+            this.checkCollision();
+            this.grid.createWall(0);
+            this.grid.createWall(1);
             for (final ILightcycle lightcycle : this.grid.getLightcycle()) {
-                initialLightcycles.add(lightcycle);
-                this.grid.createWall(0);
-                this.grid.createWall(1);
-            }
-            for (final ILightcycle lightcycle : initialLightcycles) {
                 lightcycle.move();
             }
             this.grid.setLightcyclesHaveMoved();
